@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: Customer API
+  description: An API to manage customers
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+paths:
+  /Customer/{accountId}:
+    get:
+      summary: Get a customer by account ID
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The account ID of the customer
+      responses:
+        '200':
+          description: A customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          description: Customer not found
+        '500':
+          description: Internal server error
+  /Customer/cust/{accountId}:
+    get:
+      summary: Get a mock customer by account ID
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The account ID of the mock customer
+      responses:
+        '200':
+          description: A mock customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        accountId:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        kycStatus:
+          type: string
+
