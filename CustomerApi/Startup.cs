@@ -39,6 +39,7 @@ public class Startup
             var dbName = Environment.GetEnvironmentVariable("DB_NAME");
 
             var connectionString = $"Server={dbHost};Database={dbName};User={dbUser};Password={dbPassword};";
+            Console.WriteLine("connectionString: " + connectionString);
             return new MySqlConnection(connectionString);
         });
     }
