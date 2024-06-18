@@ -27,25 +27,6 @@ paths:
           description: Customer not found
         '500':
           description: Internal server error
-  /Customer/cust/{accountId}:
-    get:
-      summary: Get a mock customer by account ID
-      parameters:
-        - name: accountId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The account ID of the mock customer
-      responses:
-        '200':
-          description: A mock customer
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Customer'
-        '500':
-          description: Internal server error
 components:
   schemas:
     Customer:
